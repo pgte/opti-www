@@ -11,3 +11,9 @@ $ npm install
 ~~~bash
 $ npm run server
 ~~~
+
+## Compile
+
+~~~bash
+$ npm run compile
+~~~
