@@ -14,7 +14,7 @@
     "pack:css:download:raleway": "wget 'https://fonts.googleapis.com/ss?family=Raleway:400,100,200,300,600,500,700,800,900' -O _src/vendor/google-raleway.css",
     "pack:css:vendor": "cat _src/vendor/bootstrap/css/bootstrap.min.css _src/vendor/google-roboto.css _src/vendor/google-raleway.css _src/vendor/owl-carousel/owl.carousel.css _src/vendor/owl-carousel/owl.theme.css src/vendor/owl-carousel/owl.transitions.css _src/vendor/magnific-popup/magnific-popup.css _src/vendor/formstone/ackground.css _src/vendor/animate.css/animate.min.css > _src/vendor/all.css",
     "vendor:update": "cp -R vendor/* _src/_vendor",
-    "compile": "harp compile _src _dist"
+    "compile": "harp compile _src www"
   },
   "repository": {
     "type": "git",
