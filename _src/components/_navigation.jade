@@ -1,0 +1,25 @@
+//- Navigation
+//- NOTE: .navbar-default and .navbar-inverse are both supported with this theme.
+nav.navbar.navbar-inverse.navbar-fixed-top.navbar-expanded
+  .container
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+        span.sr-only Toggle navigation
+        i.fa.fa-bars
+        |  Menu
+      a.navbar-brand.page-scroll(href='#page-top')
+        img.img-responsive(src='img/agency/logo.svg', alt='')
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li.hidden
+          a.page-scroll(href='#page-top')
+        li
+          a.page-scroll(href='#about') About
+        li
+          a.page-scroll(href='#process') Process
+        li
+          a.page-scroll(href='#work') Work
+        li
+          a.page-scroll(href='#pricing') Pricing
+        li
+          a.page-scroll(href='#contact') Contact
