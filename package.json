@@ -1,0 +1,24 @@
+{
+  "name": "opti-www",
+  "version": "0.0.1",
+  "description": "OPTi www",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "server": "harp server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pgte/opti-www.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/pgte/opti-www/issues"
+  },
+  "homepage": "https://github.com/pgte/opti-www#readme",
+  "devDependencies": {
+    "harp": "^0.23.0"
+  }
+}
