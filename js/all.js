@@ -1115,7 +1115,7 @@ $(document).ready(function() {
     if (isPhoneDevice) {
         //mobile
     } else {
-        //desktop               
+        //desktop
         // Initialize WOW.js
         wow = new WOW({
             offset: 50
@@ -1131,9 +1131,15 @@ $(document).ready(function() {
     // To use this feature, add a link on your page that links to an ID, and add the .page-scroll class to the link itself. See the docs for more details.
     $('a.page-scroll').bind('click', function(event) {
         var $anchor = $(this);
+        var href = $anchor.attr('href')
+        var title = $anchor.attr('title')
         $('html, body').stop().animate({
-            scrollTop: ($($anchor.attr('href')).offset().top - 50)
-        }, 1250, 'easeInOutExpo');
+            scrollTop: ($(href).offset().top - 50)
+        }, 1250, 'easeInOutExpo', function() {
+            if (history && history.pushState) {
+                history.pushState(null, 'OPTi Housing Systems - ' + title, href)
+            }
+        });
         event.preventDefault();
     });
 
