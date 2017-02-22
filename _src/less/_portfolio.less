@@ -4,12 +4,13 @@
 	background-color: @themeDark;
 	.item {
 		background-color: @themeDark;
-		background: no-repeat center center scroll; 
+		background: no-repeat center center scroll;
 		.background-cover;
 		padding: 50px 55px;
 		text-align: center;
 		.project-details {
-			padding: 0;
+			padding: 5%;
+			background-color: rgba(0,0,0,0.35);
 			.project-name {
 				display: block;
 				font-size: 40px;
@@ -22,9 +23,6 @@
 				font-size: 18px;
 				line-height: 18px;
 			}
-		}
-		.device-container {
-			padding: 25px;
 		}
 	}
 	.owl-controls {
@@ -62,9 +60,10 @@
 		.item {
 			padding: 155px 55px 155px;
 			text-align: left;
-			min-height: 100%;		
+			min-height: 100%;
 			.project-details {
-				padding: 25% 0 0;
+				background-color: rgba(0,0,0,0.35);
+				padding: 25% 5% 5%;
 				img.client-logo {
 					margin: 0 auto 25px 0;
 				}
@@ -80,7 +79,7 @@
 			}
 			hr.colored {
 				margin: 20px auto 20px 0;
-			}			
+			}
 		}
 	}
 }
@@ -98,7 +97,7 @@
 	.background-cover;
 	.modal-content {
 		color: white;
-		background: transparent;
+		background: rgba(0,0,0,0.5);
 	    border-radius: 0;
 	    background-clip: border-box;
 	    -webkit-box-shadow: none;
@@ -147,8 +146,8 @@
                 -webkit-transform: rotate(90deg);
                 /* Safari and Chrome */
                 z-index:1052;
-            }            
-        }        
+            }
+        }
     }
 }
 
@@ -189,7 +188,7 @@
 		.owl-next {
 			right: 15px;
 		}
-	}	
+	}
 }
 
 // Portfolio Grid
@@ -301,10 +300,10 @@
 
 /*  #Mobile (Portrait) - Note: Design for a width of 320px */
 @media only screen and (max-width: 767px) {
-	
+
 	#portfoliolist .mix {
 		width:48%;
 		margin:1%;
-	}		
-	
+	}
+
 }
