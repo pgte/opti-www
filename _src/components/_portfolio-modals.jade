@@ -1,6 +1,6 @@
 //- Portfolio Modals
 //- Example Modal 1: Corresponds with Portfolio Carousel Item 1
-#portfolioModal1.portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true', style="background-image: url('img/opti/portfolio/casa-porto-santo/casa-porto-santo.jpg')")
+#casa-porto-santo.portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true', style="background-image: url('img/opti/portfolio/casa-porto-santo/opti-casa-porto-santo.jpg')")
   .modal-content
     .close-modal(data-dismiss='modal')
       .lr
@@ -28,19 +28,7 @@
                     .item
                       img.img-responsive(src='img/agency/portfolio/carousel/screen-1c.jpg', alt='')
           .col-md-8.col-md-offset-2
-            ul.list-inline.item-details
-              li
-                | Client:
-                strong Start Bootstrap
-              li
-                | Date:
-                strong April 2015
-              li
-                | Service:
-                strong Web Development
-            button.btn.btn-default(type='button', data-dismiss='modal')
-              i.fa.fa-times
-              |  Close
+            a.btn.btn-block.btn-full-width.page-scroll(href='#contact', data-dismiss='modal') Podemos desenhar-lhe uma casa à medida do seu gosto.<br>Fale connosco.
 //- Example Modal 2: Corresponds with Portfolio Carousel Item 2
 #portfolioModal2.portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true', style="background-image: url('img/agency/portfolio/carousel/bg-2.jpg')")
   .modal-content
