@@ -9,10 +9,7 @@
   "scripts": {
     "server": "harp server _src",
     "server:dist": "harp server www",
-    "pack:css:download": "npm run pack:css:download:roboto & npm run pack:css:download:raleway",
-    "pack:css:download:roboto": "wget 'https://fonts.googleapis.com/css?family=Roboo:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' -O _src/vendor/google-roboto.css",
-    "pack:css:download:raleway": "wget 'https://fonts.googleapis.com/ss?family=Raleway:400,100,200,300,600,500,700,800,900' -O _src/vendor/google-raleway.css",
-    "pack:css:vendor": "cat _src/vendor/bootstrap/css/bootstrap.min.css _src/vendor/google-roboto.css _src/vendor/google-raleway.css _src/vendor/owl-carousel/owl.carousel.css _src/vendor/owl-carousel/owl.theme.css src/vendor/owl-carousel/owl.transitions.css _src/vendor/magnific-popup/magnific-popup.css _src/vendor/formstone/ackground.css _src/vendor/animate.css/animate.min.css > _src/vendor/all.css",
+    "pack:css:vendor": "cat _src/vendor/bootstrap/css/bootstrap.min.css _src/vendor/owl-carousel/owl.carousel.css _src/vendor/owl-carousel/owl.theme.css _src/vendor/owl-carousel/owl.transitions.css _src/vendor/magnific-popup/magnific-popup.css _src/vendor/animate.css/animate.min.css > _src/vendor/all.css",
     "pack:js:vendor": "cat  _src/vendor/jquery/jquery.min.js _src/vendor/bootstrap/js/bootstrap.min.js _src/vendor/jquery.easing/jquery.easing.min.js _src/vendor/owl-carousel/owl.carousel.js _src/vendor/magnific-popup/jquery.magnific-popup.min.js _src/vendor/formstone/core.js _src/vendor/formstone/transition.js _src/vendor/formstone/background.js _src/vendor/mixitup/jquery.mixitup.js _src/vendor/wow/wow.min.js  > _src/vendor/all.js",
     "pack:js:core": "cat _src/js/classie.js _src/js/cbpAnimatedHeader.js _src/js/contact_me.js _src/js/jqBootstrapValidation.js _src/js/vitality.js  > _src/js/all.js",
     "vendor:update": "cp -R vendor/* _src/_vendor",
