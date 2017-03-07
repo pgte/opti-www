@@ -1157,6 +1157,36 @@ $(document).ready(function() {
         $('.navbar-toggle:visible').click();
     });
 
+    (function() {
+        var images = [
+          'header-casa-grandola',
+          'header-casa-rabacal',
+          'header-casa-porto-santo'
+        ];
+        var index = -1;
+        var image
+        var $header = $('.header-carousel')
+        var $logo = $header.find('.intro-content');
+        setInterval(function () {
+
+            $logo.fadeOut()
+            $header.fadeOut(function() {
+                if (image) {
+                    $header.removeClass(images[index])
+                }
+
+                index = (index + 1) % images.length
+                image = images[index];
+                console.log(image);
+                $header.addClass(image);
+                $header.fadeIn(function() {
+                    $logo.fadeIn(4000)
+                });
+            })
+
+        }, 5000)
+    }())
+
     // Owl Carousel Settings
     $(".about-carousel").owlCarousel({
         items: 3,
