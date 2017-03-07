@@ -109,8 +109,8 @@ $(document).ready(function() {
             "<i class='fa fa-angle-right'></i>"
         ],
         autoHeight: true,
-        mouseDrag: false,
-        touchDrag: false,
+        mouseDrag: true,
+        touchDrag: true,
         transitionStyle: "fadeUp"
     });
 
