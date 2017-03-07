@@ -3,14 +3,14 @@ header {
 	display: block;
 	height: auto;
 	width: auto;
-	background-color: @themeDark;
+	background-color: #000;
 	background: no-repeat center center;
 	background-attachment: scroll;
 	.background-cover;
 	padding: 100px 0;
-	background: linear-gradient( rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url('../img/opti/portfolio/casa-porto-santo/opti-casa-porto-santo.jpg');
-	@media(max-width:768px) {
-		background: linear-gradient( rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url('../img/opti/portfolio/casa-porto-santo/opti-casa-porto-santo-small.jpg');
+	background: linear-gradient( rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url('../img/opti/portfolio/casa-porto-santo/opti-casa-porto-santo-small.jpg');
+	@media(min-width:768px) {
+		background: linear-gradient( rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url('../img/opti/portfolio/casa-porto-santo/opti-casa-porto-santo.jpg');
 		background-position: center center;
 		background-repeat: no-repeat;
 	}
@@ -58,6 +58,27 @@ header {
 			}
 		}
 	}
+}
+
+.header-casa-porto-santo {
+	background-image: linear-gradient( rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url(../img/opti/portfolio/casa-porto-santo/opti-casa-porto-santo-small.jpg);
+  @media(min-width:768px) {
+  	background-image: linear-gradient( rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url(../img/opti/portfolio/casa-porto-santo/opti-casa-porto-santo.jpg);
+  }
+}
+
+.header-casa-grandola {
+	background-image: linear-gradient( rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url(../img/opti/portfolio/casa-grandola/opti-casa-grandola-small.jpg);
+  @media(min-width:768px) {
+  	background-image: linear-gradient( rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url(../img/opti/portfolio/casa-grandola/opti-casa-grandola.jpg);
+  }
+}
+
+.header-casa-rabacal {
+	background-image: linear-gradient( rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url(../img/opti/portfolio/casa-rabacal/opti-casa-rabacal-small.jpg);
+  @media(min-width:768px) {
+  	background-image: linear-gradient( rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url(../img/opti/portfolio/casa-rabacal/opti-casa-rabacal.jpg);
+  }
 }
 
 @media(min-width:768px) {
