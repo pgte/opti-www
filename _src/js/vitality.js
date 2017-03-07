@@ -64,6 +64,14 @@ $(document).ready(function() {
         var $logo = $header.find('.intro-content');
         setInterval(function () {
 
+            $logo.stop({
+                clearQueue: true,
+                jumpToEnd: true
+            });
+            $header.stop({
+                clearQueue: true,
+                jumpToEnd: true
+            })
             $logo.fadeOut()
             $header.fadeOut(function() {
                 if (image) {
