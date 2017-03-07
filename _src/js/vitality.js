@@ -72,7 +72,7 @@ $(document).ready(function() {
                 clearQueue: true,
                 jumpToEnd: true
             })
-            $logo.fadeOut()
+            $logo.fadeTo('normal', 0)
             $header.fadeOut(function() {
                 if (image) {
                     $header.removeClass(images[index])
@@ -80,10 +80,9 @@ $(document).ready(function() {
 
                 index = (index + 1) % images.length
                 image = images[index];
-                console.log(image);
                 $header.addClass(image);
                 $header.fadeIn(function() {
-                    $logo.fadeIn(4000)
+                    $logo.fadeTo(4000, 1)
                 });
             })
 
@@ -146,14 +145,6 @@ $(document).ready(function() {
         type: 'image',
         image: {
             titleSrc: 'title'
-        }
-    });
-
-    // Formstone Background - Video Background Settings
-    $("header.video").background({
-        source: {
-            poster: "img/agency/backgrounds/bg-mobile-fallback.jpg",
-            mp4: "mp4/camera.mp4"
         }
     });
 
