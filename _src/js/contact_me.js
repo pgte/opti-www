@@ -17,6 +17,11 @@ $(function() {
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
+            if (ga) {
+                ga.send('Contact', 'submit contact form')
+                ga('set', 'userId', email);
+            }
+
             $.ajax({
                 url: "./mail/contact_me.php",
                 type: "POST",
