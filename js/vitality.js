@@ -34,6 +34,9 @@ $(document).ready(function() {
             if (history && history.pushState) {
                 history.pushState(null, 'OPTi Housing Systems - ' + title, href)
             }
+            if (ga) {
+                ga('send', 'pageview', { 'page': location.pathname + location.search + location.hash});
+            }
         });
         event.preventDefault();
     });
@@ -166,5 +169,11 @@ $(document).ready(function() {
     };
 
     filterList.init();
+
+    $('#mc-embedded-subscribe-form').on('submit', function(event) {
+        if (ga) {
+            ga('send', 'Newsletter', 'subscribe newsletter')
+        }
+    })
 
 })(jQuery); // End of use strict

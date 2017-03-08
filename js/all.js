@@ -140,6 +140,11 @@ var cbpAnimatedHeader = (function() {
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
+            if (ga) {
+                ga.send('Contact', 'submit contact form')
+                ga('set', 'userId', email);
+            }
+
             $.ajax({
                 url: "./mail/contact_me.php",
                 type: "POST",
@@ -1139,6 +1144,9 @@ $(document).ready(function() {
             if (history && history.pushState) {
                 history.pushState(null, 'OPTi Housing Systems - ' + title, href)
             }
+            if (ga) {
+                ga('send', 'pageview', { 'page': location.pathname + location.search + location.hash});
+            }
         });
         event.preventDefault();
     });
@@ -1271,5 +1279,11 @@ $(document).ready(function() {
     };
 
     filterList.init();
+
+    $('#mc-embedded-subscribe-form').on('submit', function(event) {
+        if (ga) {
+            ga('send', 'Newsletter', 'subscribe newsletter')
+        }
+    })
 
 })(jQuery); // End of use strict
