@@ -18,7 +18,7 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             if (ga) {
-                ga.send('Contact', 'submit contact form')
+                ga('send', 'Contact', 'submit contact form')
                 ga('set', 'userId', email);
             }
 
