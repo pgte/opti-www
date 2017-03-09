@@ -1167,16 +1167,16 @@ $(document).ready(function() {
 
     (function() {
         var images = [
+          'header-casa-porto-santo',
           'header-casa-grandola',
-          'header-casa-rabacal',
-          'header-casa-porto-santo'
+          'header-casa-palmeira',
+          'header-casa-rabacal'
         ];
-        var index = -1;
-        var image
+        var index = 0;
+        var image = images[0]
         var $header = $('.header-carousel')
         var $logo = $header.find('.intro-content');
         setInterval(function () {
-
             $logo.stop({
                 clearQueue: true,
                 jumpToEnd: true
