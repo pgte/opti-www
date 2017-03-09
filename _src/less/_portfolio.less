@@ -91,23 +91,42 @@
 }
 
 #casa-porto-santo {
-	background-image: url('../img/opti/portfolio/casa-porto-santo/opti-casa-porto-santo-small.jpg');
+	background-image: url('../img/opti/portfolio/casa-porto-santo/opti-casa-porto-santo.jpg');
+	@media(max-width:1200px) {
+		background-image: url('../img/opti/portfolio/casa-porto-santo/opti-casa-porto-santo-1200.jpg');
+	}
 	@media(min-width:768px) {
-		background-image: url('../img/opti/portfolio/casa-porto-santo/opti-casa-porto-santo.jpg');
+		background-image: url('../img/opti/portfolio/casa-porto-santo/opti-casa-porto-santo-small.jpg');
+	}
+}
+
+#casa-palmeira {
+	background-image: url('../img/opti/portfolio/casa-palmeira/opti-casa-palmeira.jpg');
+	@media(max-width:1200px) {
+		background-image: url('../img/opti/portfolio/casa-palmeira/opti-casa-palmeira-1200.jpg');
+	}
+	@media(max-width:768px) {
+		background-image: url('../img/opti/portfolio/casa-palmeira/opti-casa-palmeira-small.jpg');
 	}
 }
 
 #casa-grandola {
-	background-image: url('../img/opti/portfolio/casa-grandola/opti-casa-grandola-small.jpg');
-	@media(min-width:768px) {
-		background-image: url('../img/opti/portfolio/casa-grandola/opti-casa-grandola.jpg');
+	background-image: url('../img/opti/portfolio/casa-grandola/opti-casa-grandola.jpg');
+	@media(max-width:1200px) {
+		background-image: url('../img/opti/portfolio/casa-grandola/opti-casa-grandola-1200.jpg');
+	}
+	@media(max-width:768px) {
+		background-image: url('../img/opti/portfolio/casa-grandola/opti-casa-grandola-small.jpg');
 	}
 }
 
 #casa-rabacal {
-	background-image: url('../img/opti/portfolio/casa-rabacal/opti-casa-rabacal-small.jpg');
-	@media(min-width:768px) {
-	  background-image: url('../img/opti/portfolio/casa-rabacal/opti-casa-rabacal.jpg')
+	background-image: url('../img/opti/portfolio/casa-rabacal/opti-casa-rabacal.jpg');
+	@media(max-width:1200px) {
+	  background-image: url('../img/opti/portfolio/casa-rabacal/opti-casa-rabacal-1200.jpg')
+  }
+	@media(max-width:768px) {
+	  background-image: url('../img/opti/portfolio/casa-rabacal/opti-casa-rabacal-small.jpg')
   }
 }
 
@@ -130,6 +149,9 @@
 		h2 {
 	    	margin: 0;
 	    	font-size: 46px;
+		}
+		h3 {
+			text-transform: none;
 		}
 		.item-details {
 			margin: 30px 0;
