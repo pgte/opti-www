@@ -140,10 +140,11 @@ var cbpAnimatedHeader = (function() {
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
-            if (ga) {
-                ga('send', 'Contact', 'submit contact form')
-                ga('set', 'userId', email);
-            }
+
+            var $button = $form.find('button')
+            var oldText = $button.text()
+
+            $button.text('Enviando...').attr('disabled', 'disabled')
 
             $.ajax({
                 url: "/contact",
@@ -167,6 +168,7 @@ var cbpAnimatedHeader = (function() {
 
                     //clear all fields
                     $('#contactForm').trigger("reset");
+                    $button.text('Enviar').removeAttr('disabled')
                 },
                 error: function() {
                     // Fail message
@@ -176,9 +178,14 @@ var cbpAnimatedHeader = (function() {
                     $('#success > .alert-danger').append("<strong>Pedimos desculpa, " + firstName + ", mas parece que o nosso servidor está em baixo. Por favor tente outra vez mais tarde, ou envie um email direto para info@opti.pt..");
                     $('#success > .alert-danger').append('</div>');
                     //clear all fields
-                    $('#contactForm').trigger("reset");
+                    $button.text('Enviar').removeAttr('disabled')
                 },
             })
+
+            if (ga) {
+                ga('send', 'event', 'Contact', 'submit contact form')
+                ga('set', 'userId', email);
+            }
         },
         filter: function() {
             return $(this).is(":visible");
@@ -381,7 +388,7 @@ $('#name').focus(function() {
             //                                                     EMAIL
             // ---------------------------------------------------------
             if ($this.attr("type") !== undefined && $this.attr("type").toLowerCase() === "email") {
-              message = "Not a valid email address<!-- data-validator-validemail-message to override -->";
+              message = "Por favor introduza um endereço de email válido<!-- data-validator-validemail-message to override -->";
               if ($this.data("validationValidemailMessage")) {
                 message = $this.data("validationValidemailMessage");
               } else if ($this.data("validationEmailMessage")) {
@@ -676,7 +683,7 @@ $('#name').focus(function() {
                 // How many errors did we find?
                 if (settings.options.semanticallyStrict && errorsFound.length === 1) {
                   // Only one? Being strict? Just output it.
-                  $helpBlock.html(errorsFound[0] + 
+                  $helpBlock.html(errorsFound[0] +
                     ( settings.options.prependExistingHelpBlock ? $helpBlock.data("original-contents") : "" ));
                 } else {
                   // Multiple? Being sloppy? Glue them together into an UL.
@@ -1282,7 +1289,19 @@ $(document).ready(function() {
 
     $('#mc-embedded-subscribe-form').on('submit', function(event) {
         if (ga) {
-            ga('send', 'Newsletter', 'subscribe newsletter')
+            ga('send', 'event', 'Newsletter', 'subscribe newsletter')
+        }
+    })
+
+    $.getJSON('/contacts', function (data) {
+        if (data.phone) {
+            $('#contact-phone').text(data.phone)
+        }
+
+        if (data.email) {
+            $('#contact-email')
+              .text(data.email)
+              .attr('href', 'mailto:' + data.email)
         }
     })
 
