@@ -171,9 +171,7 @@ $(document).ready(function() {
     filterList.init();
 
     $('#mc-embedded-subscribe-form').on('submit', function(event) {
-        if (ga) {
-            ga('send', 'event', 'Newsletter', 'subscribe newsletter')
-        }
+        ga('send', 'event', 'Newsletter', 'subscribe newsletter')
     })
 
     $.getJSON('/contacts', function (data) {
