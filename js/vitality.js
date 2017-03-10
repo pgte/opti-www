@@ -172,7 +172,19 @@ $(document).ready(function() {
 
     $('#mc-embedded-subscribe-form').on('submit', function(event) {
         if (ga) {
-            ga('send', 'Newsletter', 'subscribe newsletter')
+            ga('send', 'event', 'Newsletter', 'subscribe newsletter')
+        }
+    })
+
+    $.getJSON('/contacts', function (data) {
+        if (data.phone) {
+            $('#contact-phone').text(data.phone)
+        }
+
+        if (data.email) {
+            $('#contact-email')
+              .text(data.email)
+              .attr('href', 'mailto:' + data.email)
         }
     })
 

@@ -17,10 +17,11 @@ $(function() {
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
-            if (ga) {
-                ga('send', 'Contact', 'submit contact form')
-                ga('set', 'userId', email);
-            }
+
+            var $button = $form.find('button')
+            var oldText = $button.text()
+
+            $button.text('Enviando...').attr('disabled', 'disabled')
 
             $.ajax({
                 url: "/contact",
@@ -44,6 +45,7 @@ $(function() {
 
                     //clear all fields
                     $('#contactForm').trigger("reset");
+                    $button.text('Enviar').removeAttr('disabled')
                 },
                 error: function() {
                     // Fail message
@@ -53,9 +55,14 @@ $(function() {
                     $('#success > .alert-danger').append("<strong>Pedimos desculpa, " + firstName + ", mas parece que o nosso servidor está em baixo. Por favor tente outra vez mais tarde, ou envie um email direto para info@opti.pt..");
                     $('#success > .alert-danger').append('</div>');
                     //clear all fields
-                    $('#contactForm').trigger("reset");
+                    $button.text('Enviar').removeAttr('disabled')
                 },
             })
+
+            if (ga) {
+                ga('send', 'event', 'Contact', 'submit contact form')
+                ga('set', 'userId', email);
+            }
         },
         filter: function() {
             return $(this).is(":visible");
