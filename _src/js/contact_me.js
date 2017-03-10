@@ -59,10 +59,8 @@ $(function() {
                 },
             })
 
-            if (ga) {
-                ga('send', 'event', 'Contact', 'submit contact form')
-                ga('set', 'userId', email);
-            }
+            ga('send', 'event', 'Contact', 'submit contact form')
+            ga('set', 'userId', email);
         },
         filter: function() {
             return $(this).is(":visible");
