@@ -182,10 +182,8 @@ var cbpAnimatedHeader = (function() {
                 },
             })
 
-            if (ga) {
-                ga('send', 'event', 'Contact', 'submit contact form')
-                ga('set', 'userId', email);
-            }
+            ga('send', 'event', 'Contact', 'submit contact form')
+            ga('set', 'userId', email);
         },
         filter: function() {
             return $(this).is(":visible");
@@ -1198,12 +1196,13 @@ $(document).ready(function() {
                     $header.removeClass(images[index])
                 }
 
-                index = (index + 1) % images.length
+                index = (index + 1) % images.length;
                 image = images[index];
                 $header.addClass(image);
                 $header.fadeIn(function() {
                     $logo.fadeTo(4000, 1)
                 });
+
             })
 
         }, 5000)
@@ -1288,9 +1287,7 @@ $(document).ready(function() {
     filterList.init();
 
     $('#mc-embedded-subscribe-form').on('submit', function(event) {
-        if (ga) {
-            ga('send', 'event', 'Newsletter', 'subscribe newsletter')
-        }
+        ga('send', 'event', 'Newsletter', 'subscribe newsletter')
     })
 
     $.getJSON('/contacts', function (data) {

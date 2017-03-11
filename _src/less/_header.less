@@ -10,6 +10,12 @@ header {
 	padding: 100px 0;
 	background-position: center center;
 	background-repeat: no-repeat;
+  transition: background 4s;
+  -webkit-transition: background 5s ;
+  -moz-transition: background 5s ;
+  -ms-transition: background 5s ;
+  -o-transition: background 5s ;
+  transition: background 5s ;
 	.intro-content {
 		color: white;
 		text-align: center;
@@ -94,6 +100,12 @@ header {
   }
 }
 
+@media(max-width:768px) {
+	header {
+		padding-bottom: 50px;
+	}
+}
+
 @media(min-width:768px) {
 	header {
 		height: 100%;
@@ -129,30 +141,5 @@ header {
 @media(min-width:1025px) {
 	header {
 		background-attachment: fixed;
-  	}
-}
-
-header.video {
-	.overlay {
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		background: #000;
-		z-index: 998;
-		opacity: 0;
-	}
-	.intro-content {
-		z-index: 999;
-	}
-	.scroll-down {
-		z-index: 999;
-	}
-}
-
-@media(min-width:768px) {
-	header.video {
-		.overlay {
-			opacity: 0.5;
-		}
-	}
+  }
 }
