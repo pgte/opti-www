@@ -81,12 +81,13 @@ $(document).ready(function() {
                     $header.removeClass(images[index])
                 }
 
-                index = (index + 1) % images.length
+                index = (index + 1) % images.length;
                 image = images[index];
                 $header.addClass(image);
                 $header.fadeIn(function() {
                     $logo.fadeTo(4000, 1)
                 });
+
             })
 
         }, 5000)
