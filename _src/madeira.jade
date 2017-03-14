@@ -1,0 +1,16 @@
+p(style='color: white') A redireccionar para o website das OPTi Houses, por favor aguarde...
+p(style='color: white') Se não carregar <a href="https://opti.pt">carregue aqui para continuar</a>.
+script
+  | document.addEventListener("DOMContentLoaded", function(event) {
+  |   function createCookie(name,value,days) {
+  |     var expires = "";
+  |     if (days) {
+  |       var date = new Date();
+  |       date.setTime(date.getTime() + (days*24*60*60*1000));
+  |       expires = "; expires=" + date.toUTCString();
+  |     }
+  |     document.cookie = name + "=" + value + expires + "; path=/";
+  |   }
+  |   createCookie('affiliate', 'madeira', 1000)
+  |   window.location = 'https://opti.pt'
+  | });
