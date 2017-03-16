@@ -1137,6 +1137,13 @@ $(document).ready(function() {
 (function($) {
     "use strict"; // Start of use strict
 
+    var slogans = [
+      'Grandes ideias para viver melhor',
+      'Construimos o seu sonho',
+      'Qualidade para toda a vida',
+      'A sua casa, à medida das suas necessidades',
+    ]
+
     // Smooth Scrolling: Smooth scrolls to an ID on the current page.
     // To use this feature, add a link on your page that links to an ID, and add the .page-scroll class to the link itself. See the docs for more details.
     $('a.page-scroll').bind('click', function(event) {
@@ -1198,6 +1205,7 @@ $(document).ready(function() {
 
                 index = (index + 1) % images.length;
                 image = images[index];
+                $('#slogan').text(slogans[index])
                 $header.addClass(image);
                 $header.fadeIn(function() {
                     $logo.fadeTo(4000, 1)
