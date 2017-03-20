@@ -12,5 +12,7 @@ script
   |     document.cookie = name + "=" + value + expires + "; path=/";
   |   }
   |   createCookie('affiliate', 'madeira', 1000)
-  |   window.location = 'https://opti.pt'
+  |   setTimeout(function() {
+  |     window.location = 'https://opti.pt'
+  |   }, 2000)
   | });
