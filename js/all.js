@@ -1142,6 +1142,7 @@ $(document).ready(function() {
       'Construimos o seu sonho',
       'Qualidade para toda a vida',
       'A sua casa, à medida das suas necessidades',
+      'Construimos o seu sonho'
     ]
 
     // Smooth Scrolling: Smooth scrolls to an ID on the current page.
@@ -1182,7 +1183,8 @@ $(document).ready(function() {
           'header-casa-porto-santo',
           'header-casa-grandola',
           'header-casa-palmeira',
-          'header-casa-rabacal'
+          'header-casa-rabacal',
+          'header-casa-tatami'
         ];
         var index = 0;
         var image = images[0]
@@ -1227,7 +1229,9 @@ $(document).ready(function() {
         ],
     });
 
-    $(".portfolio-carousel").owlCarousel({
+    var portfolio = $(".portfolio-carousel")
+
+    portfolio.owlCarousel({
         singleItem: true,
         navigation: true,
         pagination: false,
@@ -1240,6 +1244,27 @@ $(document).ready(function() {
         touchDrag: true,
         transitionStyle: "fadeUp"
     });
+
+    var hashes = [
+      '#projects-casa-porto-santo',
+      '#projects-casa-grandola',
+      '#projects-casa-palmeira',
+      '#projects-casa-rabacal',
+      '#projects-casa-tatami'
+    ]
+
+    var hash = window.location.hash
+
+    if (hash) {
+        var projectPos = hashes.indexOf(hash)
+        if (projectPos >= 0) {
+            console.log('hash:', projectPos)
+            $('#projects-link').click()
+
+            portfolio.trigger('owl.jumpTo', projectPos)
+        }
+    }
+
 
     $(".testimonials-carousel, .mockup-carousel").owlCarousel({
         singleItem: true,
