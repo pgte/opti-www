@@ -7,23 +7,23 @@ html(lang='en')
     meta(name='author', content='OPTHS Housing Systems Lda.')
     title OPTi Housing Systems - Construa a sua casa de sonho
 
-    link(href='vendor/all.css', rel='stylesheet', type='text/css')
-    link(href='vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    link(href='/vendor/all.css', rel='stylesheet', type='text/css')
+    link(href='/vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
     //- Vitality Theme CSS
     //- INSTRUCTIONS: Uncomment the color scheme you want to use. Red is chosen by default.
-    link(href='less/vitality.css', rel='stylesheet', type='text/css')
-    link(href='vendor/noway-font/Noway-Regular-webfont/stylesheet.css', rel='stylesheet', type='text/css')
-    link(href='vendor/noway-font/Noway-Bold-webfont/stylesheet.css', rel='stylesheet', type='text/css')
-    link(rel='icon' href='favicon.png' type='image/x-icon')
+    link(href='/less/vitality.css', rel='stylesheet', type='text/css')
+    link(href='/vendor/noway-font/Noway-Regular-webfont/stylesheet.css', rel='stylesheet', type='text/css')
+    link(href='/vendor/noway-font/Noway-Bold-webfont/stylesheet.css', rel='stylesheet', type='text/css')
+    link(rel='icon' href='/favicon.png' type='image/x-icon')
     //- IE8 support for HTML5 elements and media queries
     //if lt IE 9
       script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
       script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
   //- NOTE: Use the .modern or .vintage class to the body element below to see different font pairings!
-  body#page-top
+  body.modal-open#page-top
     != yield
-    script(src='vendor/all.js')
-    script(src='js/all.js')
+    script(src='/vendor/all.js')
+    script(src='/js/all.js')
     script
       | (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       |   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
