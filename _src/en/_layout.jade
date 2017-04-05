@@ -1,0 +1,25 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, user-scalable=no')
+    meta(name='description', content='OPTi Housing Systems - Build your dream house. OPTi works with passion to build your dream home suited to your tastes.')
+    meta(name='author', content='OPTHS Housing Systems Lda.')
+    title OPTi Housing Systems - Build your dream house
+    link(href='/vendor/all.css', rel='stylesheet', type='text/css')
+    link(href='/vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    //- Vitality Theme CSS
+    //- INSTRUCTIONS: Uncomment the color scheme you want to use. Red is chosen by default.
+    link(href='/less/vitality.css', rel='stylesheet', type='text/css')
+    link(href='/vendor/noway-font/Noway-Regular-webfont/stylesheet.css', rel='stylesheet', type='text/css')
+    link(href='/vendor/noway-font/Noway-Bold-webfont/stylesheet.css', rel='stylesheet', type='text/css')
+    link(rel='icon' href='favicon.png' type='image/x-icon')
+    //- IE8 support for HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+  //- NOTE: Use the .modern or .vintage class to the body element below to see different font pairings!
+  body#page-top
+    != yield
+    script(src='/vendor/all.js')
+    script(src='/js/all-en.js')

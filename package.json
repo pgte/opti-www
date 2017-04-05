@@ -11,7 +11,9 @@
     "server:dist": "harp server www",
     "pack:css:vendor": "cat _src/vendor/bootstrap/css/bootstrap.min.css _src/vendor/owl-carousel/owl.carousel.css _src/vendor/owl-carousel/owl.theme.css _src/vendor/owl-carousel/owl.transitions.css _src/vendor/magnific-popup/magnific-popup.css _src/vendor/animate.css/animate.min.css > _src/vendor/all.css",
     "pack:js:vendor": "cat  _src/vendor/jquery/jquery.min.js _src/vendor/bootstrap/js/bootstrap.min.js _src/vendor/jquery.easing/jquery.easing.min.js _src/vendor/owl-carousel/owl.carousel.js _src/vendor/magnific-popup/jquery.magnific-popup.min.js _src/vendor/formstone/core.js _src/vendor/formstone/transition.js _src/vendor/formstone/background.js _src/vendor/mixitup/jquery.mixitup.js _src/vendor/wow/wow.min.js _src/vendor/picturefill.min.js > _src/vendor/all.js",
-    "pack:js:core": "cat _src/js/classie.js _src/js/cbpAnimatedHeader.js _src/js/contact_me.js _src/js/jqBootstrapValidation.js _src/js/vitality.js  > _src/js/all.js",
+    "pack:js:core": "npm run pack:js:core:pt && npm run pack:js:core:en",
+    "pack:js:core:pt": "cat _src/js/classie.js _src/js/cbpAnimatedHeader.js _src/js/contact_me.js _src/js/jqBootstrapValidation.js _src/js/opti.js _src/js/opti-pt.js  > _src/js/all.js",
+    "pack:js:core:en": "cat _src/js/classie.js _src/js/cbpAnimatedHeader.js _src/js/contact_me.js _src/js/jqBootstrapValidation.js _src/js/opti.js _src/js/opti-en.js  > _src/js/all-en.js",
     "vendor:update": "cp -R vendor/* _src/_vendor",
     "compile": "harp compile _src www",
     "deploy:live": "gsutil -m rsync -r -d www gs://opts-houses-www-bucket/"

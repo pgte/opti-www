@@ -39,20 +39,20 @@ $(function() {
                     $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
                     $('#success > .alert-success')
-                        .append("<strong>A sua mensagem foi enviada e em breve entraremos em contacto consigo. Obrigado!</strong>");
+                        .append("<strong>" + window.opti.contact.success + "</strong>");
                     $('#success > .alert-success')
                         .append('</div>');
 
                     //clear all fields
                     $('#contactForm').trigger("reset");
-                    $button.text('Enviar').removeAttr('disabled')
+                    $button.text(window.opti.contact.button).removeAttr('disabled')
                 },
                 error: function() {
                     // Fail message
                     $('#success').html("<div class='alert alert-danger'>");
                     $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
-                    $('#success > .alert-danger').append("<strong>Pedimos desculpa, " + firstName + ", mas parece que o nosso servidor está em baixo. Por favor tente outra vez mais tarde, ou envie um email direto para info@opti.pt..");
+                    $('#success > .alert-danger').append("<strong>" + window.opti.contact.problem + "</strong>");
                     $('#success > .alert-danger').append('</div>');
                     //clear all fields
                     $button.text('Enviar').removeAttr('disabled')

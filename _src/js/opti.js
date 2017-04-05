@@ -1,34 +1,5 @@
-/*!
- * Vitality v1.4.0 (http://themes.startbootstrap.com/vitality-v1.4.0)
- * Copyright 2013-2016 Start Bootstrap Themes
- * To use this theme you must have a license purchased at WrapBootstrap (https://wrapbootstrap.com)
- */
-
-// Load WOW.js on non-touch devices
-var isPhoneDevice = "ontouchstart" in document.documentElement;
-$(document).ready(function() {
-    if (isPhoneDevice) {
-        //mobile
-    } else {
-        //desktop
-        // Initialize WOW.js
-        wow = new WOW({
-            offset: 50
-        })
-        wow.init();
-    }
-});
-
 (function($) {
     "use strict"; // Start of use strict
-
-    var slogans = [
-      'Grandes ideias para viver melhor',
-      'Construimos o seu sonho',
-      'Qualidade para toda a vida',
-      'A sua casa, à medida das suas necessidades',
-      'Construimos o seu sonho'
-    ]
 
     // Smooth Scrolling: Smooth scrolls to an ID on the current page.
     // To use this feature, add a link on your page that links to an ID, and add the .page-scroll class to the link itself. See the docs for more details.
@@ -92,7 +63,7 @@ $(document).ready(function() {
 
                 index = (index + 1) % images.length;
                 image = images[index];
-                $('#slogan').text(slogans[index])
+                $('#slogan').text(window.opti.slogans[index])
                 $header.addClass(image);
                 $header.fadeIn(function() {
                     $logo.fadeTo(4000, 1)
@@ -141,42 +112,17 @@ $(document).ready(function() {
     var hash = window.location.hash
 
     if (hash) {
-        var projectPos = hashes.indexOf(hash)
+        var projectPos = hashes.indexOf(hash);
         if (projectPos >= 0) {
             console.log('hash:', projectPos)
-            $('#projects-link').click()
+            $('html, body').stop().animate({
+                scrollTop: ($('#projects').offset().top - 50)
+            }, 0);
 
-            portfolio.trigger('owl.jumpTo', projectPos)
+            portfolio.trigger('owl.jumpTo', projectPos);
         }
     }
 
-
-    $(".testimonials-carousel, .mockup-carousel").owlCarousel({
-        singleItem: true,
-        navigation: true,
-        pagination: true,
-        autoHeight: true,
-        navigationText: [
-            "<i class='fa fa-angle-left'></i>",
-            "<i class='fa fa-angle-right'></i>"
-        ],
-        transitionStyle: "backSlide"
-    });
-
-    $(".portfolio-gallery").owlCarousel({
-        items: 3,
-    });
-
-    // Magnific Popup jQuery Lightbox Gallery Settings
-    $('.gallery-link').magnificPopup({
-        type: 'image',
-        gallery: {
-            enabled: true
-        },
-        image: {
-            titleSrc: 'title'
-        }
-    });
 
     $('.mix').magnificPopup({
         type: 'image',
