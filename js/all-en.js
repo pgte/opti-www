@@ -1282,19 +1282,22 @@ $('#name').focus(function() {
     })
 
 })(jQuery); // End of use strict
-;(function() {
+
+(function() {
+  "use strict";
+
   window.opti = {
     slogans: [
-      'Grandes ideias para viver melhor',
-      'Construimos o seu sonho',
-      'Qualidade para toda a vida',
-      'A sua casa, à medida das suas necessidades',
-      'Construimos o seu sonho'
+      'Big ideas to live better',
+      'We build your dreams',
+      'Quality for live',
+      'Your home to suit your needs',
+      'We build your dreams'
     ],
     contact: {
-      success: 'A sua mensagem foi enviada e em breve entraremos em contacto consigo. Obrigado!',
-      problem: 'Pedimos desculpa, mas parece que o nosso servidor está em baixo. Por favor tente outra vez mais tarde, ou envie um email direto para <a href="mailto:info@opti.pt">info@opti.pt</a>..',
-      button: 'Enviar'
+      success: 'Your message was sent and soon we\'ll get in touch with you. Thank you!',
+      problem: 'We\'re sorry, but it looks likle our server is down or you\'re having connectivity issues. Please try again later or try sending an email to <a href="mailto:info@optihousing.com">info@optihousing.com</a>. Thank you!',
+      button: 'Send'
     }
   }
-}())
+})();
