@@ -114,17 +114,21 @@
     ]
 
     var hash = window.location.hash
+    var projectPos = -1
 
     if (hash) {
-        var projectPos = hashes.indexOf(hash);
-        if (projectPos >= 0) {
-            console.log('hash:', projectPos)
-            $('html, body').stop().animate({
-                scrollTop: ($('#projects').offset().top - 50)
-            }, 0);
+        projectPos = hashes.indexOf(hash);
+    } else {
+        projectPos = Math.floor(Math.random() * hashes.length)
+    }
 
-            portfolio.trigger('owl.jumpTo', projectPos);
-        }
+    if (projectPos >= 0) {
+        console.log('hash:', projectPos)
+        $('html, body').stop().animate({
+            scrollTop: ($('#projects').offset().top - 50)
+        }, 0);
+
+        portfolio.trigger('owl.jumpTo', projectPos);
     }
 
 
