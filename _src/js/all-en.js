@@ -1229,7 +1229,8 @@ $('#name').focus(function() {
       '#projects-casa-palmeira',
       '#projects-casa-rabacal',
       '#projects-casa-tatami',
-      '#projects-edificio-manhattan'
+      '#projects-edificio-manhattan',
+      '#projects-edificio-camden'
     ]
 
     var hash = window.location.hash
