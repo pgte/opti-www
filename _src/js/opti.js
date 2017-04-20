@@ -35,18 +35,22 @@
     });
 
     (function() {
-        var images = [
+        var images = shuffleArray([
           'header-casa-porto-santo',
           'header-casa-grandola',
           'header-casa-palmeira',
+          'header-casa-palmeira-interior',
           'header-casa-rabacal',
           'header-casa-tatami'
-        ];
+        ]);
         var index = 0;
         var image = images[0]
         var $header = $('.header-carousel')
         var $logo = $header.find('.intro-content');
-        setInterval(function () {
+        setInterval(setImageHeader, 5000)
+        setImageHeader()
+
+        function setImageHeader() {
             $logo.stop({
                 clearQueue: true,
                 jumpToEnd: true
@@ -71,7 +75,7 @@
 
             })
 
-        }, 5000)
+        }
     }())
 
     // Owl Carousel Settings
@@ -165,5 +169,23 @@
               .attr('href', 'mailto:' + data.email)
         }
     })
+
+    function shuffleArray (array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+    }
 
 })(jQuery); // End of use strict
