@@ -113,7 +113,8 @@
       '#projects-casa-grandola',
       '#projects-casa-palmeira',
       '#projects-casa-rabacal',
-      '#projects-casa-tatami'
+      '#projects-casa-tatami',
+      '#projects-edificio-manhattan'
     ]
 
     var hash = window.location.hash
@@ -121,15 +122,19 @@
 
     if (hash) {
         projectPos = hashes.indexOf(hash);
-    } else {
+    }
+    if (projectPos < 0) {
         projectPos = Math.floor(Math.random() * hashes.length)
     }
 
-    if (projectPos >= 0) {
-        $('html, body').stop().animate({
-            scrollTop: ($('#projects').offset().top - 50)
-        }, 0);
+    var projectsElem = $('#projects')
 
+    if (projectPos >= 0) {
+        if (projectsElem.length) {
+            $('html, body').stop().animate({
+                scrollTop: (projectsElem.offset().top - 50)
+            }, 0);
+        }
         portfolio.trigger('owl.jumpTo', projectPos);
     }
 
