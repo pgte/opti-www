@@ -1156,7 +1156,9 @@ $('#name').focus(function() {
           'header-casa-palmeira',
           'header-casa-palmeira-interior',
           'header-casa-rabacal',
-          'header-casa-tatami'
+          'header-casa-tatami',
+          'header-edificio-camden',
+          'header-edificio-manhattan'
         ]);
         var index = 0;
         var image = images[0]
@@ -1182,7 +1184,7 @@ $('#name').focus(function() {
 
                 index = (index + 1) % images.length;
                 image = images[index];
-                $('#slogan').text(window.opti.slogans[index])
+                $('#slogan').text(window.opti.slogans[index % window.opti.slogans.length])
                 $header.addClass(image);
                 $header.fadeIn(function() {
                     $logo.fadeTo(4000, 1)
@@ -1238,7 +1240,6 @@ $('#name').focus(function() {
     }
 
     if (projectPos >= 0) {
-        console.log('hash:', projectPos)
         $('html, body').stop().animate({
             scrollTop: ($('#projects').offset().top - 50)
         }, 0);
