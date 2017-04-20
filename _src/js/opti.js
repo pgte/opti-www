@@ -15,6 +15,7 @@
             }
             if (ga) {
                 ga('send', 'pageview', { 'page': location.pathname + location.search + location.hash});
+                ga('madeira.send', 'pageview', { 'page': location.pathname + location.search + location.hash});
             }
         });
         event.preventDefault();
@@ -161,6 +162,7 @@
 
     $('#mc-embedded-subscribe-form').on('submit', function(event) {
         ga('send', 'event', 'Newsletter', 'subscribe newsletter')
+        ga('madeira.send', 'event', 'Newsletter', 'subscribe newsletter')
     })
 
     $.getJSON('/contacts', function (data) {
