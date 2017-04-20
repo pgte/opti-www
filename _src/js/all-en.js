@@ -1235,25 +1235,23 @@ $('#name').focus(function() {
 
     var hash = window.location.hash
     var projectPos = -1
+    var projectsElem = $('#projects')
 
     if (hash) {
         projectPos = hashes.indexOf(hash);
+        if (projectPos >= 0) {
+            if (projectsElem.length) {
+                $('html, body').stop().animate({
+                    scrollTop: (projectsElem.offset().top - 50)
+                }, 0);
+            }
+            portfolio.trigger('owl.jumpTo', projectPos);
+        }
     }
     if (projectPos < 0) {
         projectPos = Math.floor(Math.random() * hashes.length)
     }
-
-    var projectsElem = $('#projects')
-
-    if (projectPos >= 0) {
-        if (projectsElem.length) {
-            $('html, body').stop().animate({
-                scrollTop: (projectsElem.offset().top - 50)
-            }, 0);
-        }
-        portfolio.trigger('owl.jumpTo', projectPos);
-    }
-
+    portfolio.trigger('owl.jumpTo', projectPos);
 
     $('.mix').magnificPopup({
         type: 'image',
