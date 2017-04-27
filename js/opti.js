@@ -15,6 +15,7 @@
             }
             if (ga) {
                 ga('send', 'pageview', { 'page': location.pathname + location.search + location.hash});
+                ga('madeira.send', 'pageview', { 'page': location.pathname + location.search + location.hash});
             }
         });
         event.preventDefault();
@@ -35,18 +36,24 @@
     });
 
     (function() {
-        var images = [
+        var images = shuffleArray([
           'header-casa-porto-santo',
           'header-casa-grandola',
           'header-casa-palmeira',
+          'header-casa-palmeira-interior',
           'header-casa-rabacal',
-          'header-casa-tatami'
-        ];
+          'header-casa-tatami',
+          'header-edificio-camden',
+          'header-edificio-manhattan'
+        ]);
         var index = 0;
         var image = images[0]
         var $header = $('.header-carousel')
         var $logo = $header.find('.intro-content');
-        setInterval(function () {
+        setInterval(setImageHeader, 5000)
+        setImageHeader()
+
+        function setImageHeader() {
             $logo.stop({
                 clearQueue: true,
                 jumpToEnd: true
@@ -63,7 +70,7 @@
 
                 index = (index + 1) % images.length;
                 image = images[index];
-                $('#slogan').text(window.opti.slogans[index])
+                $('#slogan').text(window.opti.slogans[index % window.opti.slogans.length])
                 $header.addClass(image);
                 $header.fadeIn(function() {
                     $logo.fadeTo(4000, 1)
@@ -71,7 +78,7 @@
 
             })
 
-        }, 5000)
+        }
     }())
 
     // Owl Carousel Settings
@@ -106,23 +113,30 @@
       '#projects-casa-grandola',
       '#projects-casa-palmeira',
       '#projects-casa-rabacal',
-      '#projects-casa-tatami'
+      '#projects-casa-tatami',
+      '#projects-edificio-manhattan',
+      '#projects-edificio-camden'
     ]
 
     var hash = window.location.hash
+    var projectPos = -1
+    var projectsElem = $('#projects')
 
     if (hash) {
-        var projectPos = hashes.indexOf(hash);
+        projectPos = hashes.indexOf(hash);
         if (projectPos >= 0) {
-            console.log('hash:', projectPos)
-            $('html, body').stop().animate({
-                scrollTop: ($('#projects').offset().top - 50)
-            }, 0);
-
+            if (projectsElem.length) {
+                $('html, body').stop().animate({
+                    scrollTop: (projectsElem.offset().top - 50)
+                }, 0);
+            }
             portfolio.trigger('owl.jumpTo', projectPos);
         }
     }
-
+    if (projectPos < 0) {
+        projectPos = Math.floor(Math.random() * hashes.length)
+    }
+    portfolio.trigger('owl.jumpTo', projectPos);
 
     $('.mix').magnificPopup({
         type: 'image',
@@ -152,6 +166,7 @@
 
     $('#mc-embedded-subscribe-form').on('submit', function(event) {
         ga('send', 'event', 'Newsletter', 'subscribe newsletter')
+        ga('madeira.send', 'event', 'Newsletter', 'subscribe newsletter')
     })
 
     $.getJSON('/contacts', function (data) {
@@ -165,5 +180,23 @@
               .attr('href', 'mailto:' + data.email)
         }
     })
+
+    function shuffleArray (array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+    }
 
 })(jQuery); // End of use strict
