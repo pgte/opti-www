@@ -6,7 +6,7 @@
     slogans: [
       'Big ideas to live better',
       'We build your dreams',
-      'Quality for live',
+      'Quality for life',
       'Your home to suit your needs',
       'We build your dreams'
     ],

@@ -1116,6 +1116,11 @@ $('#name').focus(function() {
 (function($) {
     "use strict"; // Start of use strict
 
+    var initialized = false
+    var activatedFacebookMessages = false
+
+    setTimeout(activateFacebookMessages, 30000)
+
     // Smooth Scrolling: Smooth scrolls to an ID on the current page.
     // To use this feature, add a link on your page that links to an ID, and add the .page-scroll class to the link itself. See the docs for more details.
     $('a.page-scroll').bind('click', function(event) {
@@ -1132,6 +1137,8 @@ $('#name').focus(function() {
                 ga('send', 'pageview', { 'page': location.pathname + location.search + location.hash});
                 ga('madeira.send', 'pageview', { 'page': location.pathname + location.search + location.hash});
             }
+
+            activateFacebookMessages();
         });
         event.preventDefault();
     });
@@ -1220,7 +1227,8 @@ $('#name').focus(function() {
         autoHeight: true,
         mouseDrag: true,
         touchDrag: true,
-        transitionStyle: "fadeUp"
+        transitionStyle: "fadeUp",
+        beforeMove: maybeActivateFacebookMessages
     });
 
     var hashes = [
@@ -1252,6 +1260,10 @@ $('#name').focus(function() {
         projectPos = Math.floor(Math.random() * hashes.length)
     }
     portfolio.trigger('owl.jumpTo', projectPos);
+
+    setTimeout(function() {
+        initialized = true
+    }, 0)
 
     $('.mix').magnificPopup({
         type: 'image',
@@ -1314,6 +1326,33 @@ $('#name').focus(function() {
         return array;
     }
 
+    function maybeActivateFacebookMessages () {
+      if (initialized) {
+        activateFacebookMessages()
+      }
+    }
+
+    function activateFacebookMessages() {
+        console.log('ACTIVATE')
+        if (activatedFacebookMessages) {
+            return
+        }
+        activatedFacebookMessages = true
+
+        const timeout = Math.floor(Math.random() * 5000) + 5000
+
+        setTimeout(function() {
+            $('#message').show();
+            (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/pt_PT/sdk.js#xfbml=1&version=v2.9";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        }, timeout)
+    }
+
 })(jQuery); // End of use strict
 
 (function() {
@@ -1323,7 +1362,7 @@ $('#name').focus(function() {
     slogans: [
       'Big ideas to live better',
       'We build your dreams',
-      'Quality for live',
+      'Quality for life',
       'Your home to suit your needs',
       'We build your dreams'
     ],
