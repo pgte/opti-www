@@ -1218,21 +1218,6 @@ $('#name').focus(function() {
 
     var portfolio = $(".portfolio-carousel")
 
-    portfolio.owlCarousel({
-        singleItem: true,
-        navigation: true,
-        pagination: false,
-        navigationText: [
-            "<i class='fa fa-angle-left'></i>",
-            "<i class='fa fa-angle-right'></i>"
-        ],
-        autoHeight: true,
-        mouseDrag: true,
-        touchDrag: true,
-        transitionStyle: "fadeUp",
-        beforeMove: maybeActivateFacebookMessages
-    });
-
     var hashes = [
       '#projects-casa-porto-santo',
       '#projects-casa-grandola',
@@ -1255,13 +1240,35 @@ $('#name').focus(function() {
                     scrollTop: (projectsElem.offset().top - 50)
                 }, 0);
             }
-            portfolio.trigger('owl.jumpTo', projectPos);
         }
     }
     if (projectPos < 0) {
         projectPos = Math.floor(Math.random() * hashes.length)
     }
-    portfolio.trigger('owl.jumpTo', projectPos);
+
+    console.log('detaching %d pos', projectPos)
+    $('.item.teaser-project')
+      .detach()
+      .insertBefore($('#projects .item:nth-child(' + (projectPos + 1) + ')'));
+
+    setTimeout(function () {
+        portfolio.owlCarousel({
+            singleItem: true,
+            navigation: true,
+            pagination: false,
+            navigationText: [
+                "<i class='fa fa-angle-left'></i>",
+                "<i class='fa fa-angle-right'></i>"
+            ],
+            autoHeight: true,
+            mouseDrag: true,
+            touchDrag: true,
+            transitionStyle: "fadeUp",
+            beforeMove: maybeActivateFacebookMessages
+        });
+
+        portfolio.trigger('owl.jumpTo', projectPos + 1);
+    }, 0)
 
     setTimeout(function() {
         initialized = true
