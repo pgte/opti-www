@@ -1,5 +1,8 @@
 p(style='color: white') A redireccionar para o website das OPTi Houses, por favor aguarde...
-p(style='color: white') Se não carregar <a href="https://opti.pt">carregue aqui para continuar</a>.
+p(style='color: white') Se não carregar <a href="/">carregue aqui para continuar</a>.
+<hr>
+p(style='color: white') Redirecting to OPTI Houses website, please wait...
+p(style='color: white') If it doesnt load please <a href="/">click here to proceed</a>.
 script
   | document.addEventListener("DOMContentLoaded", function(event) {
   |   function createCookie(name,value,days) {
@@ -11,8 +14,12 @@ script
   |     }
   |     document.cookie = name + "=" + value + expires + "; path=/";
   |   }
+  |   var target = 'https://opti.pt'
+  |   if (window.location.hostname === 'optihousing.com') {
+  |     target = 'http://optihousing.com'
+  |   }
   |   createCookie('affiliate', 'madeira', 1000)
   |   setTimeout(function() {
-  |     window.location = 'https://opti.pt'
+  |     window.location = target
   |   }, 2000)
   | });
