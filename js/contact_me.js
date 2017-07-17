@@ -27,6 +27,7 @@ $(function() {
                 url: "/contact",
                 type: "POST",
                 data: {
+                    origin: window.location.hostname || window.location,
                     name: name,
                     phone: phone,
                     email: email,
