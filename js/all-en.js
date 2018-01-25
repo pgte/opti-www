@@ -1162,6 +1162,7 @@ $('#name').focus(function() {
 
     (function() {
         var images = shuffleArray([
+          'header-casa-martins',
           'header-casa-porto-santo',
           'header-casa-porto-santo-interior',
           'header-casa-grandola',
@@ -1226,6 +1227,7 @@ $('#name').focus(function() {
       '#projects-casa-palmeira',
       '#projects-casa-rabacal',
       '#projects-casa-tatami',
+      '#projects-casa-martins',
       '#projects-edificio-manhattan',
       '#projects-edificio-camden'
     ]
@@ -1248,7 +1250,6 @@ $('#name').focus(function() {
         projectPos = Math.floor(Math.random() * hashes.length)
     }
 
-    console.log('detaching %d pos', projectPos)
     $('.item.teaser-project')
       .detach()
       .insertBefore($('#projects .item:nth-child(' + (projectPos + 1) + ')'));
